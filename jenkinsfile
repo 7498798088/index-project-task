@@ -4,7 +4,13 @@ pipeline {
         stage('Clone repository') {
             steps {
                 git branch: 'main', url: 'https://github.com/7498798088/index-project-task.git'
-
+            }
+        }
+        stage('Deploy to server') {
+            steps {
+                sh '''
+                    scp index.html akashmahant@54.211.85.170:/var/www/html/index.html
+                '''
             }
         }
     }
