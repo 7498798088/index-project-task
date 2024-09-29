@@ -6,9 +6,12 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/7498798088/index-project-task.git'
             }
         }
-        stage('Deploy to Server') {
+    stage('Deploy to server') {
             steps {
-                sh 'cp index.html /var/www/html/'
+                // Copy the index.html to the server's web root directory
+                sh '''
+                    scp index.html user@111.222.333.444:/var/www/html/index.html
+                '''
             }
         }
     }
