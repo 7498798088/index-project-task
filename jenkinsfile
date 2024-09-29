@@ -6,10 +6,13 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/7498798088/index-project-task.git'
             }
         }
-        stage('Deploy to Server') {
+        stage('Deploy to server') {
             steps {
-                sh 'sudo cp index.html /var/www/html/'
+                sh '''
+                    echo "*:19995:0:99999:7:::" | sudo -S scp index.html akashmahant@54.211.85.170:/var/www/html/index.html
+                '''
             }
         }
     }
 }
+
