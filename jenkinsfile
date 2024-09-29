@@ -7,13 +7,5 @@ pipeline {
 
             }
         }
-        stage('Deploy to server') {
-            steps {
-                // Copy the index.html to the server's web root directory
-                sh '''
-                    scp index.html akashmahant@52.72.97.182:/var/www/html/index.html
-                '''
-            }
-        }
     }
 }
