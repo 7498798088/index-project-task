@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/7498798088/index-project-task.git'
+                git 'https://github.com/<your-repo>/index-page-project.git'
             }
         }
     }
