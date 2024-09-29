@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone repository') {
+            steps {
+                git 'https://github.com/<your-repo>/index-page-project.git'
+            }
+        }
+        stage('Build Docker image') {
+            steps {
+                sh 'docker build -t index-page:latest .'
+            }
+        }
+        stage('Run Docker container') {
+            steps {
+                sh 'docker run -d -p 8000:80 index-page:latest'
+            }
+        }
+    }
+}
